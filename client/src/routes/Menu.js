@@ -6,15 +6,50 @@ import Newmenu from "../components/Newmenu";
 import Gogi from "../components/Gogi";
 import Modum from "../components/Modum";
 import Jungsik from "../components/Jungsik";
-
+import Axios from 'axios';
 
 const Menu = ()=>{
-
     const [content, setContent] = useState("Newmenu");
 
-    const handleClickButton = (e) => {
+    const handleGogi = (e) => {
         const { name } = e.target;
         setContent(name);
+        Axios.get("http://localhost:8080/api/gogi", {
+            gogiName: gogiName,
+            gogiPrice: gogiPrice,
+        }).then(()=>{
+            console.log("successful select");
+        })
+    };
+    const handleNewmenu = (e) => {
+        const { name } = e.target;
+        setContent(name);
+        Axios.get("http://localhost:8080/api/newmenu", {
+            newmenuName: newmenuName,
+            newmenuPrice: newmenuPrice,
+        }).then(()=>{
+            console.log("successful select");
+        })
+    };
+    const handleModum = (e) => {
+        const { name } = e.target;
+        setContent(name);
+        Axios.get("http://localhost:8080/api/modum", {
+            modumName: modumName,
+            modumPrice: modumPrice,
+        }).then(()=>{
+            console.log("successful select");
+        })
+    };
+    const handleJungsik = (e) => {
+        const { name } = e.target;
+        setContent(name);
+        Axios.get("http://localhost:8080/api/jungsik", {
+            jungsikName: jungsikName,
+            jungsikPrice: jungsikPrice,
+        }).then(()=>{
+            console.log("successful select");
+        })
     };
 
     const selectComponent = {
@@ -31,16 +66,16 @@ const Menu = ()=>{
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>메뉴</Accordion.Header>
                         <Accordion.Body>
-                            <Button onClick={handleClickButton} name="Newmenu" variant="none">신메뉴</Button>
+                            <Button onClick={handleNewmenu} name="Newmenu" variant="none">신메뉴</Button>
                         </Accordion.Body>
                     <Accordion.Body>
-                        <Button onClick={handleClickButton} name="Gogi" variant="none">고기고기</Button>
+                        <Button onClick={handleGogi} name="Gogi" variant="none">고기고기</Button>
                     </Accordion.Body>
                     <Accordion.Body>
-                        <Button onClick={handleClickButton} name="Modum"  variant="none">모둠</Button>
+                        <Button onClick={handleModum} name="Modum"  variant="none">모둠</Button>
                     </Accordion.Body>
                     <Accordion.Body>
-                        <Button onClick={handleClickButton} name="Jungsik"  variant="none">정식</Button>
+                        <Button onClick={handleJungsik} name="Jungsik"  variant="none">정식</Button>
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
