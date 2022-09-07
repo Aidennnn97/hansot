@@ -11,3 +11,4 @@ axios({
     foo: 'diary'
   }
 });
+- npm install react-kakao-maps-sdk

@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
+    padding: 20px 0px;
   }
 
   .logo{
@@ -195,7 +195,6 @@ footer .copyright {
   width: 250px;
   height: 330px;
   margin: 20px 20px;
-  background-color: aqua;
 }
 
 .menu ul li img{
