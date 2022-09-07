@@ -6,69 +6,13 @@ import Newmenu from "../components/Newmenu";
 import Gogi from "../components/Gogi";
 import Modum from "../components/Modum";
 import Jungsik from "../components/Jungsik";
-import Axios from 'axios';
 
 const Menu = ()=>{
     const [content, setContent] = useState("Newmenu");
 
-    const [gogiName, setGogiName] = useState("");
-    const [gogiPrice, setGogiPrice] = useState("");
-    const [gogiImg, setGogiImg] = useState("");
-    const handleGogi = (e) => {
+    const handleMenu = (e) => {
         const { name } = e.target;
         setContent(name);
-        Axios.post("http://localhost:8080/menu/gogi", {
-            gogiName: gogiName,
-            gogiPrice: gogiPrice,
-            gogiImg: gogiImg
-        }).then(()=>{
-            console.log("successful select");
-        })
-    };
-
-    const [newmenuName, setNewmenuName] = useState("");
-    const [newmenuPrice, setNewmenuPrice] = useState("");
-    const [newmenuImg, setNewmenuImg] = useState("");
-    const handleNewmenu = (e) => {
-        const { name } = e.target;
-        setContent(name);
-        Axios.post("http://localhost:8080/menu/newmenu", {
-            newmenuName: newmenuName,
-            newmenuPrice: newmenuPrice,
-            newmenuImg: newmenuImg
-        }).then(()=>{
-            console.log("successful select");
-        })
-    };
-
-    const [modumName, setModumName] = useState("");
-    const [modumPrice, setModumPrice] = useState("");
-    const [modumImg, setModumImg] = useState("");
-    const handleModum = (e) => {
-        const { name } = e.target;
-        setContent(name);
-        Axios.post("http://localhost:8080/menu/modum", {
-            modumName: modumName,
-            modumPrice: modumPrice,
-            modumImg: modumImg
-        }).then(()=>{
-            console.log("successful select");
-        })
-    };
-
-    const [jungsikName, setJungsikName] = useState("");
-    const [jungsikPrice, setJungsikPrice] = useState("");
-    const [jungsikImg, setJungsikImg] = useState("");
-    const handleJungsik = (e) => {
-        const { name } = e.target;
-        setContent(name);
-        Axios.post("http://localhost:8080/menu/jungsik", {
-            jungsikName: jungsikName,
-            jungsikPrice: jungsikPrice,
-            jungsikImg: jungsikImg
-        }).then(()=>{
-            console.log("successful select");
-        })
     };
 
     const selectComponent = {
@@ -85,16 +29,16 @@ const Menu = ()=>{
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>메뉴</Accordion.Header>
                         <Accordion.Body>
-                            <Button onClick={handleNewmenu} name="Newmenu" variant="none">신메뉴</Button>
+                            <Button onClick={handleMenu} name="Newmenu" variant="none">신메뉴</Button>
                         </Accordion.Body>
                     <Accordion.Body>
-                        <Button onClick={handleGogi} name="Gogi" variant="none">고기고기</Button>
+                        <Button onClick={handleMenu} name="Gogi" variant="none">고기고기</Button>
                     </Accordion.Body>
                     <Accordion.Body>
-                        <Button onClick={handleModum} name="Modum" variant="none">모둠</Button>
+                        <Button onClick={handleMenu} name="Modum" variant="none">모둠</Button>
                     </Accordion.Body>
                     <Accordion.Body>
-                        <Button onClick={handleJungsik} name="Jungsik"  variant="none">정식</Button>
+                        <Button onClick={handleMenu} name="Jungsik"  variant="none">정식</Button>
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
@@ -105,7 +49,6 @@ const Menu = ()=>{
                         {selectComponent[content]}
                     </div>
                 }
-                
             </div>
         </div>
     );

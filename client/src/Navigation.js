@@ -8,27 +8,26 @@ const Navigation = () => {
             <nav className="nav">
                 <div className="logo"><h1><Link className='home' to='/'>Home</Link></h1></div>
                 <div className="navbar dropdown">
-
                     <div className="dropdown">
-                <button className="dropbtn">BRAND 
-                <i className="fa fa-caret-down"></i>
-                </button>
-                <div className="dropdown-content">
-                <a href="#">브랜드 스토리</a>
-                <a href="#">브랜드 철학</a>
-                <a href="#">브랜드 유산</a>
-                </div>
+                        <button className="dropbtn">BRAND 
+                            <i className="fa fa-caret-down"></i>
+                        </button>
+                        <div className="dropdown-content">
+                            <a href="#">브랜드 스토리</a>
+                            <a href="#">브랜드 철학</a>
+                            <a href="#">브랜드 유산</a>
+                        </div>
                     </div> 
 
                     <div className="dropdown">
-                <button className="dropbtn">ESG 
-                <i className="fa fa-caret-down"></i>
-                </button>
-                <div className="dropdown-content">
-                <a href="#">ESG경영이란?</a>
-                <a href="#">환경보호</a>
-                <a href="#">사회공헌</a>
-                </div>
+                        <button className="dropbtn">ESG 
+                            <i className="fa fa-caret-down"></i>
+                        </button>
+                        <div className="dropdown-content">
+                            <a href="#">ESG경영이란?</a>
+                            <a href="#">환경보호</a>
+                            <a href="#">사회공헌</a>
+                        </div>
                     </div> 
 
                     <div className="dropdown">
