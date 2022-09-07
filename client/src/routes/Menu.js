@@ -11,42 +11,61 @@ import Axios from 'axios';
 const Menu = ()=>{
     const [content, setContent] = useState("Newmenu");
 
+    const [gogiName, setGogiName] = useState("");
+    const [gogiPrice, setGogiPrice] = useState("");
+    const [gogiImg, setGogiImg] = useState("");
     const handleGogi = (e) => {
         const { name } = e.target;
         setContent(name);
-        Axios.get("http://localhost:8080/api/gogi", {
+        Axios.post("http://localhost:8080/menu/gogi", {
             gogiName: gogiName,
             gogiPrice: gogiPrice,
+            gogiImg: gogiImg
         }).then(()=>{
             console.log("successful select");
         })
     };
+
+    const [newmenuName, setNewmenuName] = useState("");
+    const [newmenuPrice, setNewmenuPrice] = useState("");
+    const [newmenuImg, setNewmenuImg] = useState("");
     const handleNewmenu = (e) => {
         const { name } = e.target;
         setContent(name);
-        Axios.get("http://localhost:8080/api/newmenu", {
+        Axios.post("http://localhost:8080/menu/newmenu", {
             newmenuName: newmenuName,
             newmenuPrice: newmenuPrice,
+            newmenuImg: newmenuImg
         }).then(()=>{
             console.log("successful select");
         })
     };
+
+    const [modumName, setModumName] = useState("");
+    const [modumPrice, setModumPrice] = useState("");
+    const [modumImg, setModumImg] = useState("");
     const handleModum = (e) => {
         const { name } = e.target;
         setContent(name);
-        Axios.get("http://localhost:8080/api/modum", {
+        Axios.post("http://localhost:8080/menu/modum", {
             modumName: modumName,
             modumPrice: modumPrice,
+            modumImg: modumImg
         }).then(()=>{
             console.log("successful select");
         })
     };
+
+    const [jungsikName, setJungsikName] = useState("");
+    const [jungsikPrice, setJungsikPrice] = useState("");
+    const [jungsikImg, setJungsikImg] = useState("");
     const handleJungsik = (e) => {
         const { name } = e.target;
         setContent(name);
-        Axios.get("http://localhost:8080/api/jungsik", {
+        Axios.post("http://localhost:8080/menu/jungsik", {
             jungsikName: jungsikName,
             jungsikPrice: jungsikPrice,
+            jungsikImg: jungsikImg
         }).then(()=>{
             console.log("successful select");
         })
@@ -72,7 +91,7 @@ const Menu = ()=>{
                         <Button onClick={handleGogi} name="Gogi" variant="none">고기고기</Button>
                     </Accordion.Body>
                     <Accordion.Body>
-                        <Button onClick={handleModum} name="Modum"  variant="none">모둠</Button>
+                        <Button onClick={handleModum} name="Modum" variant="none">모둠</Button>
                     </Accordion.Body>
                     <Accordion.Body>
                         <Button onClick={handleJungsik} name="Jungsik"  variant="none">정식</Button>

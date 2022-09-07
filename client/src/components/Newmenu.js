@@ -2,17 +2,37 @@ import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 
 const Newmenu = () => {
+    const [newmenuName, setNewmenuName] = useState("");
+    const [newmenuPrice, setNewmenuPrice] = useState("");
+    const [newmenuImg, setNewmenuImg] = useState("");
+    const [newmenuList, setNewmenuList] = useState([]);
+
+    useEffect(()=>{
+        Axios.get("http://localhost:8080/menu/newmenu").then((response)=>{
+            setNewmenuList(response.data);
+        })
+    },[])
+    
+    Axios.post("http://localhost:8080/menu/newmenu", {
+            newmenuName: newmenuName,
+            newmenuPrice: newmenuPrice,
+            newmenuImg: newmenuImg
+        }).then(()=>{
+            console.log("successful select");
+        })
     return (
         <>
         <div className="menu_main_title">신메뉴</div>
         <ul>
-            <li>
-                <div><img src="./img/newmenu1.jpeg" /></div>
-                <div><p>MenuName</p><p>Price</p></div>
-            </li>
-            <li><div><img src="./img/newmenu2.jpeg" /></div></li>
-            <li><div><img src="./img/newmenu3.jpeg" /></div></li>
-            <li><div><img src="./img/newmenu4.jpeg" /></div></li>
+            {newmenuList.map((val)=>{
+                return (
+                    <li>
+                        <div><img src={val.newmenuImg} /></div>
+                        <p>{val.newmenuName}</p>
+                        <p>{val.newmenuPrice}</p>
+                    </li>
+                )
+            })}
         </ul>
         </>
     )

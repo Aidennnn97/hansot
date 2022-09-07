@@ -26,11 +26,31 @@ app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-app.get("/api/get", (req, res) => {
+app.get("/menu/gogi", (req, res) => {
     const sqlSelect = "SELECT * FROM gogi";
     db.query(sqlSelect, (err, result) => {
-        console.log(err);
-        console.log(result);
+        res.send(result);
+    })
+})
+
+app.get("/menu/jungsik", (req, res) => {
+    const sqlSelect = "SELECT * FROM jungsik";
+    db.query(sqlSelect, (err, result) => {
+        res.send(result);
+    })
+})
+
+app.get("/menu/modum", (req, res) => {
+    const sqlSelect = "SELECT * FROM modum";
+    db.query(sqlSelect, (err, result) => {
+        res.send(result);
+    })
+})
+
+app.get("/menu/newmenu", (req, res) => {
+    const sqlSelect = "SELECT * FROM newmenu";
+    db.query(sqlSelect, (err, result) => {
+        res.send(result);
     })
 })
 
