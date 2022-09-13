@@ -60,7 +60,5 @@ app.get('*', function(req, res){
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-// html을 서버가 만들면 server-side rendering
-// html을 react가 만들면 client-side rendering
 
 
